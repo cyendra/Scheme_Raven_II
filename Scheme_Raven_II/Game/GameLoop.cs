@@ -11,8 +11,9 @@ namespace Scheme_Raven_II.Game
 {
     class GameLoop
     {
-        public delegate void LoopCallback();
-        LoopCallback _callback;
+        public delegate void LoopCallback(double elapsedTime);      // 定义回调函数
+        private LoopCallback _callback;                             // 每次游戏循环中调用的函数
+        private PreciseTimer _timer = new PreciseTimer();           // 帧计时器
         
         public GameLoop(LoopCallback callback)
         {
@@ -24,7 +25,7 @@ namespace Scheme_Raven_II.Game
         {
             while (IsAppStillIdle())
             {
-                _callback();
+                _callback(_timer.GetElapsedTime());
             }
         }
 

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Scheme_Raven_II.Game;
+
 namespace Scheme_Raven_II
 {
     static class Program
@@ -16,12 +18,8 @@ namespace Scheme_Raven_II
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new GameForm());
         }
-        static Game.GameLoop _loop = new Game.GameLoop(GameLoop);
-        static void GameLoop()
-        {
-            System.Console.WriteLine("loop");
-        }
+
     }
 }
