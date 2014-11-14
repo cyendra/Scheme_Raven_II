@@ -60,7 +60,11 @@
       <DependentUpon>GameForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Game\GameLoop.cs" />
+    <Compile Include="Game\IGameObject.cs" />
     <Compile Include="Game\PreciseTimer.cs" />
+    <Compile Include="Game\SplashScreenState.cs" />
+    <Compile Include="Game\StateSystem.cs" />
+    <Compile Include="Game\TitleMenuState.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scheme\Inner\Value.cs" />
