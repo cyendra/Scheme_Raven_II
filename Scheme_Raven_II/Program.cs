@@ -18,5 +18,10 @@ namespace Scheme_Raven_II
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
+        static Game.GameLoop _loop = new Game.GameLoop(GameLoop);
+        static void GameLoop()
+        {
+            System.Console.WriteLine("loop");
+        }
     }
 }
