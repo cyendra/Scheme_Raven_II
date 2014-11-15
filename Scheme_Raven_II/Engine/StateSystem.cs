@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Engine
+namespace Raven.Engine
 {
     /// <summary>
     /// 控制游戏状态的类

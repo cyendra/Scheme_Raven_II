@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Raven.Engine.DataStruct;
 using Tao.OpenGl;
 
-using Engine.DataStruct;
-using Engine.Graphics;
-
-namespace Engine
+namespace Raven.Engine.Graphics
 {
     public class Batch
     {

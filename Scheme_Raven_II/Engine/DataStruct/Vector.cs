@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Engine.DataStruct
+namespace Raven.Engine.DataStruct
 {
     /// <summary>
     /// 三维向量类

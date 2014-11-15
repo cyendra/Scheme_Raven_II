@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Engine.Graphics
+﻿
+namespace Raven.Engine.Font
 {
+    /// <summary>
+    /// 描述字体信息的类
+    /// </summary>
     public class CharacterData
     {
         public int Id { get; set; }

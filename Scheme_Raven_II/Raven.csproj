@@ -7,13 +7,13 @@
     <ProjectGuid>{40A2F69B-CD35-41B2-A012-F38D54A31FDB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Scheme_Raven_II</RootNamespace>
+    <RootNamespace>Raven</RootNamespace>
     <AssemblyName>Scheme_Raven_II</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -65,9 +65,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Engine\Batch.cs" />
-    <Compile Include="Engine\Graphics\CharacterData.cs" />
-    <Compile Include="Engine\Graphics\CharacterSprite.cs" />
+    <Compile Include="Engine\Graphics\Batch.cs" />
+    <Compile Include="Engine\Font\CharacterData.cs" />
+    <Compile Include="Engine\Font\CharacterSprite.cs" />
     <Compile Include="Engine\DataStruct\Color.cs" />
     <Compile Include="Engine\FastLoop.cs" />
     <Compile Include="Engine\Font\Font.cs" />
@@ -86,15 +86,11 @@
     <Compile Include="Game\GameForm.Designer.cs">
       <DependentUpon>GameForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Game\GameLoop.cs" />
-    <Compile Include="Game\IGameObject.cs" />
-    <Compile Include="Game\PreciseTimer.cs" />
-    <Compile Include="Game\SplashScreenState.cs" />
-    <Compile Include="Game\StateSystem.cs" />
-    <Compile Include="Game\TitleMenuState.cs" />
     <Compile Include="Engine\IGameObject.cs" />
     <Compile Include="Engine\DataStruct\Point.cs" />
     <Compile Include="Engine\PreciseTimer.cs" />
+    <Compile Include="Game\State\MultipleTexturesState.cs" />
+    <Compile Include="Game\State\SoundTestState.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Engine\Graphics\Renderer.cs" />
@@ -119,6 +115,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

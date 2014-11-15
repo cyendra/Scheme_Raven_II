@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
-namespace Engine
+namespace Raven.Engine
 {
     [StructLayout(LayoutKind.Sequential)]
     public struct Message
@@ -18,7 +15,10 @@ namespace Engine
         public System.Drawing.Point p;
     }
 
-    public class FastLoop
+    /// <summary>
+    /// 游戏循环的类
+    /// </summary>
+    public class GameLoop
     {
         [System.Security.SuppressUnmanagedCodeSecurity]
         [DllImport("User32.dll", CharSet = CharSet.Auto)]
@@ -29,17 +29,17 @@ namespace Engine
             uint messageFilterMax,
             uint flags);
 
-        PreciseTimer _timer = new PreciseTimer();
+        private PreciseTimer _timer = new PreciseTimer();
         public delegate void LoopCallback(double elapsedTime);
-        LoopCallback _callback;
+        private LoopCallback _callback;
 
-        public FastLoop(LoopCallback callback)
+        public GameLoop(LoopCallback callback)
         {
             _callback = callback;
             Application.Idle += new EventHandler(OnApplicationEnterIdle);
         }
 
-        void OnApplicationEnterIdle(object sender, EventArgs e)
+        private void OnApplicationEnterIdle(object sender, EventArgs e)
         {
             while (IsAppStillIdle())
             {

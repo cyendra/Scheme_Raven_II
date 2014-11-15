@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Tao.Sdl;
 
-namespace Engine.Input
+namespace Raven.Engine.Input
 {
     public class ControlTrigger
     {

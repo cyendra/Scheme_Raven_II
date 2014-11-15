@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Raven.Engine.Graphics;
 
-namespace Engine.Graphics
+namespace Raven.Engine.Font
 {
+    /// <summary>
+    /// 字母精灵类
+    /// </summary>
     public class CharacterSprite
     {
         public Sprite Sprite { get; set; }

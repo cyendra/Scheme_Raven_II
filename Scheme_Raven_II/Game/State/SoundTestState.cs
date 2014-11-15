@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Scheme_Raven_II.Game
+namespace Raven.Game.State
 {
-    interface IGameObject
+    class SoundTestState
     {
-        void Update(double elapsedTime);
-        void Render();
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using Scheme_Raven_II.Game;
+using Raven.Game;
 
-namespace Scheme_Raven_II
+namespace Raven
 {
     static class Program
     {

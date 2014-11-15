@@ -1,4 +1,4 @@
-﻿namespace Scheme_Raven_II.Game
+﻿namespace Raven.Game
 {
     partial class GameForm
     {

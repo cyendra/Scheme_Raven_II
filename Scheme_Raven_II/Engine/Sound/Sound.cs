@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Tao.OpenAl;
-
-namespace Engine
+﻿
+namespace Raven.Engine
 {
+    /// <summary>
+    /// 代表播放的声音的类
+    /// </summary>
     public class Sound
     {
         public int Channel { get; set; }
@@ -23,8 +21,6 @@ namespace Engine
         {
             Channel = channel;
         }
-
-
 
     }
 }

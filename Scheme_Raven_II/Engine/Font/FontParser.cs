@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
 
-using Engine.Graphics;
-
-namespace Engine.Font
+namespace Raven.Engine.Font
 {
     /// <summary>
     /// This parser doesn't support kerning! It's also quite brittle and will die on unexpected input.

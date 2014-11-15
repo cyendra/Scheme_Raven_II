@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
 
-namespace Engine
+namespace Raven.Engine
 {
     /// <summary>
     /// 获取每一帧之间的时间的类

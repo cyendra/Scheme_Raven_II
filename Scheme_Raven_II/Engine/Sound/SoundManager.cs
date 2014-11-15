@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Tao.OpenAl;
 using System.IO;
+using Tao.OpenAl;
 
-namespace Engine
+namespace Raven.Engine
 {
+    /// <summary>
+    /// 声音管理器
+    /// </summary>
     public class SoundManager
     {
-        struct SoundSource
+        /// <summary>
+        /// 加载的声音的信息
+        /// </summary>
+        private struct SoundSource
         {
             public SoundSource(int bufferId, string filePath)
             {
@@ -17,12 +21,13 @@ namespace Engine
                 _filePath = filePath;
             }
             public int _bufferId;
-            string _filePath;
+            public string _filePath;
         }
-        Dictionary<string, SoundSource> _soundIdentifier = new Dictionary<string, SoundSource>(); 
-        readonly int MaxSoundChannels = 256;
-        List<int> _soundChannels = new List<int>();
-        float _masterVolume = 1.0f;
+        
+        private Dictionary<string, SoundSource> _soundIdentifier = new Dictionary<string, SoundSource>(); 
+        private readonly int MaxSoundChannels = 256;
+        private List<int> _soundChannels = new List<int>();
+        private float _masterVolume = 1.0f;
 
         public SoundManager()
         {
@@ -47,6 +52,11 @@ namespace Engine
             }
         }
 
+        /// <summary>
+        /// 指定声道是否被占用
+        /// </summary>
+        /// <param name="channel"></param>
+        /// <returns></returns>
         private bool IsChannelPlaying(int channel)
         {
             int value = 0;
@@ -54,6 +64,10 @@ namespace Engine
             return (value == Al.AL_PLAYING);
         }
 
+        /// <summary>
+        /// 找到空闲的声道
+        /// </summary>
+        /// <returns></returns>
         private int FindNextFreeChannel()
         {
             foreach (int slot in _soundChannels)
@@ -67,7 +81,11 @@ namespace Engine
             return -1;
         }
 
-
+        /// <summary>
+        /// 加载声音文件
+        /// </summary>
+        /// <param name="soundId"></param>
+        /// <param name="path"></param>
         public void LoadSound(string soundId, string path)
         {
             // Generate a buffer.
@@ -89,11 +107,23 @@ namespace Engine
             _soundIdentifier.Add(soundId, new SoundSource(buffer, path));
         }
 
+        /// <summary>
+        /// 播放声音
+        /// </summary>
+        /// <param name="soundId"></param>
+        /// <returns></returns>
         public Sound PlaySound(string soundId)
         {
             // Default play sound doesn't loop.
             return PlaySound(soundId, false);
         }
+
+        /// <summary>
+        /// 播放声音
+        /// </summary>
+        /// <param name="soundId"></param>
+        /// <param name="loop"></param>
+        /// <returns></returns>
         public Sound PlaySound(string soundId, bool loop)
         {
             int channel = FindNextFreeChannel();

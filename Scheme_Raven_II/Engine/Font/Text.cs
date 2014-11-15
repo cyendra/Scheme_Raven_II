@@ -1,12 +1,11 @@
-﻿using System;
+﻿using Raven.Engine.DataStruct;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Engine.DataStruct;
-using Engine.Font;
-using Engine.Graphics;
-namespace Engine.Font
+
+namespace Raven.Engine.Font
 {
+    /// <summary>
+    /// 排列字母顺序的类
+    /// </summary>
     public class Text
     {
         Font _font;
