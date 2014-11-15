@@ -2,6 +2,9 @@
 
 namespace Engine.DataStruct
 {
+    /// <summary>
+    /// 描述顶点的颜色
+    /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public struct Color
     {

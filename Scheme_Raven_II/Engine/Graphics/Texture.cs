@@ -1,6 +1,9 @@
 ﻿
 namespace Engine.Graphics
 {
+    /// <summary>
+    /// 矩形纹理类
+    /// </summary>
     public struct Texture
     {
         public int Id { get; set; }

@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Engine.DataStruct;
+﻿using Engine.DataStruct;
+
 namespace Engine.Graphics
 {
+    /// <summary>
+    /// 精灵类
+    /// </summary>
     public class Sprite
     {
         internal const int VertexAmount = 6;
-        Vector[] _vertexPositions = new Vector[VertexAmount];
-        Color[] _vertexColors = new Color[VertexAmount];
-        Point[] _vertexUVs = new Point[VertexAmount];
-        Texture _texture = new Texture();
+        private Vector[] _vertexPositions = new Vector[VertexAmount];
+        private Color[] _vertexColors = new Color[VertexAmount];
+        private Point[] _vertexUVs = new Point[VertexAmount];
+        private Texture _texture = new Texture();
 
         public Sprite()
         {
@@ -20,6 +20,9 @@ namespace Engine.Graphics
             SetUVs(new Point(0, 0), new Point(1, 1));
         }
 
+        /// <summary>
+        /// 纹理
+        /// </summary>
         public Texture Texture
         {
             get { return _texture; }
@@ -47,11 +50,14 @@ namespace Engine.Graphics
             get { return _vertexUVs; }
         }
 
+        /// <summary>
+        /// 获取精灵的中心坐标
+        /// </summary>
+        /// <returns></returns>
         private Vector GetCenter()
         {
             double halfWidth = GetWidth() / 2;
             double halfHeight = GetHeight() / 2;
-
 
             return new Vector(
                 _vertexPositions[0].X + halfWidth,
@@ -59,6 +65,12 @@ namespace Engine.Graphics
                 _vertexPositions[0].Z);
         }
 
+        /// <summary>
+        /// 初始化精灵位置
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
         private void InitVertexPositions(Vector position, double width, double height)
         {
             double halfWidth = width / 2;

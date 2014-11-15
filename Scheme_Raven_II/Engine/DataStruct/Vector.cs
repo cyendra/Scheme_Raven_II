@@ -3,6 +3,9 @@ using System.Runtime.InteropServices;
 
 namespace Engine.DataStruct
 {
+    /// <summary>
+    /// 三维向量类
+    /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public struct Vector
     {
@@ -19,31 +22,58 @@ namespace Engine.DataStruct
             Z = z;
         }
 
+        /// <summary>
+        /// 向量长度
+        /// </summary>
+        /// <returns></returns>
         public double Length()
         {
             return Math.Sqrt(LengthSquared());
         }
 
+        /// <summary>
+        /// 长度的平方
+        /// </summary>
+        /// <returns></returns>
         public double LengthSquared()
         {
             return (X * X + Y * Y + Z * Z);
         }
-
+        
+        /// <summary>
+        /// 向量相加
+        /// </summary>
+        /// <param name="r"></param>
+        /// <returns></returns>
         public Vector Add(Vector r)
         {
             return new Vector(X + r.X, Y + r.Y, Z + r.Z);
         }
 
+        /// <summary>
+        /// 向量相减
+        /// </summary>
+        /// <param name="r"></param>
+        /// <returns></returns>
         public Vector Subtract(Vector r)
         {
             return new Vector(X - r.X, Y - r.Y, Z - r.Z);
         }
 
+        /// <summary>
+        /// 向量相等
+        /// </summary>
+        /// <param name="v"></param>
+        /// <returns></returns>
         public bool Equals(Vector v)
         {
             return (X == v.X) && (Y == v.Y) && (Z == v.Z);
         }
 
+        /// <summary>
+        /// 取得向量hash值
+        /// </summary>
+        /// <returns></returns>
         public override int GetHashCode()
         {
             return (int)X ^ (int)Y ^ (int)Z;
@@ -80,7 +110,11 @@ namespace Engine.DataStruct
             return !v1.Equals(v2);
         }
 
-
+        /// <summary>
+        /// 向量放缩
+        /// </summary>
+        /// <param name="v"></param>
+        /// <returns></returns>
         public Vector Multiply(double v)
         {
             return new Vector(X * v, Y * v, Z * v);
@@ -91,6 +125,11 @@ namespace Engine.DataStruct
             return v.Multiply(s);
         }
 
+        /// <summary>
+        /// 叉乘
+        /// </summary>
+        /// <param name="v"></param>
+        /// <returns></returns>
         public Vector CrossProduct(Vector v)
         {
             double nx = Y * v.Z - Z * v.Y;
@@ -99,6 +138,11 @@ namespace Engine.DataStruct
             return new Vector(nx, ny, nz);
         }
 
+        /// <summary>
+        /// 点乘
+        /// </summary>
+        /// <param name="v"></param>
+        /// <returns></returns>
         public double DotProduct(Vector v)
         {
             return (v.X * X) + (Y * v.Y) + (Z * v.Z);
@@ -118,6 +162,11 @@ namespace Engine.DataStruct
             return v1.Subtract(v2);
         }
 
+        /// <summary>
+        /// 取得方向向量
+        /// </summary>
+        /// <param name="v"></param>
+        /// <returns></returns>
         public Vector Normalise(Vector v)
         {
             double r = v.Length();
@@ -131,11 +180,14 @@ namespace Engine.DataStruct
             }
         }
 
+        /// <summary>
+        /// 取得向量的字符串表示
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return string.Format("X:{0}, Y:{1}, Z:{2}", X, Y, Z);
         }
-
 
     }
 

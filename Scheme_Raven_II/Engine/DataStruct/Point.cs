@@ -1,6 +1,9 @@
 ﻿using System.Runtime.InteropServices;
 namespace Engine.DataStruct
 {
+    /// <summary>
+    /// 描述(U,V)坐标
+    /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public struct Point
     {

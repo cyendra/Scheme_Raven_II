@@ -1,21 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Tao.OpenGl;
 using Tao.DevIl;
+using Tao.OpenGl;
 
 namespace Engine.Graphics
 {
+    /// <summary>
+    /// 纹理管理器
+    /// </summary>
     public class TextureManager : IDisposable
     {
-        Dictionary<string, Texture> _textureDatabase = new Dictionary<string, Texture>();
+        private Dictionary<string, Texture> _textureDatabase = new Dictionary<string, Texture>();
 
+        /// <summary>
+        /// 获取纹理
+        /// </summary>
+        /// <param name="textureId"></param>
+        /// <returns></returns>
         public Texture Get(string textureId)
         {
             return _textureDatabase[textureId];
         }
 
+        /// <summary>
+        /// 加载纹理
+        /// </summary>
+        /// <param name="textureId"></param>
+        /// <param name="path"></param>
         public void LoadTexture(string textureId, string path)
         {
             int devilId = 0;
