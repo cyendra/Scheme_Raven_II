@@ -88,7 +88,8 @@ namespace Raven.Game
         {
             // 加载游戏状态
             _system.AddState("texture_test", new MultipleTexturesState(_textureManager));
-            _system.ChangeState("texture_test");
+            _system.AddState("sound_test", new SoundTestState(_soundManager));
+            _system.ChangeState("sound_test");
         }
 
         /// <summary>
@@ -96,7 +97,7 @@ namespace Raven.Game
         /// </summary>
         private void InitSound()
         {
-            _soundManager.LoadSound("music", "soundeffect1.wav");
+            _soundManager.LoadSound("effect", "soundeffect1.wav");
         }
 
         /// <summary>
