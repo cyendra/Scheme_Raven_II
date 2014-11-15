@@ -1,18 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Raven.Engine.Input
 {
+    /// <summary>
+    /// 键盘支持的类
+    /// </summary>
     public class Keyboard
     {
         [DllImport("User32.dll")]
         public static extern short GetAsyncKeyState(int vKey);
 
-        Control _openGLControl;
+        private Control _openGLControl;
         public KeyPressEventHandler KeyPressEvent;
 
         class KeyState
@@ -51,7 +52,8 @@ namespace Raven.Engine.Input
                 }
             }
         }
-        Dictionary<Keys, KeyState> _keyStates = new Dictionary<Keys, KeyState>();
+
+        private Dictionary<Keys, KeyState> _keyStates = new Dictionary<Keys, KeyState>();
 
         public Keyboard(Control openGLControl)
         {
@@ -61,7 +63,7 @@ namespace Raven.Engine.Input
             _openGLControl.KeyPress += new KeyPressEventHandler(OnKeyPress);
         }
 
-        void OnKeyPress(object sender, KeyPressEventArgs e)
+        private void OnKeyPress(object sender, KeyPressEventArgs e)
         {
             if (KeyPressEvent != null)
             {
@@ -69,13 +71,13 @@ namespace Raven.Engine.Input
             }
         }
 
-        void OnKeyUp(object sender, KeyEventArgs e)
+        private void OnKeyUp(object sender, KeyEventArgs e)
         {
             EnsureKeyStateExists(e.KeyCode);
             _keyStates[e.KeyCode].OnUp();
         }
 
-        void OnKeyDown(object sender, KeyEventArgs e)
+        private void OnKeyDown(object sender, KeyEventArgs e)
         {
             EnsureKeyStateExists(e.KeyCode);
             _keyStates[e.KeyCode].OnDown();
@@ -113,9 +115,9 @@ namespace Raven.Engine.Input
         }
 
         private bool PollKeyPress(Keys key)
-    {
-        return (GetAsyncKeyState((int)key) != 0);
-    }
+        {
+            return (GetAsyncKeyState((int)key) != 0);
+        }
 
         private void ProcessControlKeys()
         {

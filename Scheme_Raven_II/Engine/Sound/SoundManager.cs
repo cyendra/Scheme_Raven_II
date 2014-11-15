@@ -153,17 +153,30 @@ namespace Raven.Engine
             }
         }
 
-
+        /// <summary>
+        /// 逐个声道音量控制
+        /// </summary>
+        /// <param name="sound"></param>
+        /// <param name="value"></param>
         public void ChangeVolume(Sound sound, float value)
         {
             Al.alSourcef(sound.Channel, Al.AL_GAIN, _masterVolume * value);
         }
 
+        /// <summary>
+        /// 测试是否在播放声音
+        /// </summary>
+        /// <param name="sound"></param>
+        /// <returns></returns>
         public bool IsSoundPlaying(Sound sound)
         {
             return IsChannelPlaying(sound.Channel);
         }
 
+        /// <summary>
+        /// 停止播放声音
+        /// </summary>
+        /// <param name="sound"></param>
         public void StopSound(Sound sound)
         {
             if (sound.Channel == -1)
@@ -173,6 +186,10 @@ namespace Raven.Engine
             Al.alSourceStop(sound.Channel);
         }
 
+        /// <summary>
+        /// 主音量控制
+        /// </summary>
+        /// <param name="value"></param>
         public void MasterVolume(float value)
         {
             _masterVolume = value;

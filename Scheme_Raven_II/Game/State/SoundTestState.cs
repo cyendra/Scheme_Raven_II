@@ -6,27 +6,30 @@ using System.Threading.Tasks;
 
 using Raven.Engine;
 using Raven.Engine.Graphics;
+using Raven.Engine.Input;
 
 namespace Raven.Game.State
 {
     public class SoundTestState : IGameObject
     {
         private SoundManager _soundManager;
-        double _count = 3;
+        private Input _input;
+        double _count = 0;
 
-        public SoundTestState(SoundManager soundManager)
+        public SoundTestState(SoundManager soundManager, Input input)
         {
             _soundManager = soundManager;
+            _input = input;
         }
 
         public void Update(double elapsedTime)
         {
-            _count -= elapsedTime;
-            if (_count < 0)
+            if (_count<=0 && _input.Mouse.LeftPressed)
             {
-                _count = 3;
+                _count = 1;
                 _soundManager.PlaySound("effect");
             }
+            if (_count > 0) _count -= elapsedTime;
         }
 
         public void Render()

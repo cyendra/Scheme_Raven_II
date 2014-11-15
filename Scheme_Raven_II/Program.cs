@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Raven.Game;
+using Raven.Engine;
 
 namespace Raven
 {
@@ -18,7 +19,7 @@ namespace Raven
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GameForm());
+            Application.Run(new Engine.GameForm());
         }
 
     }

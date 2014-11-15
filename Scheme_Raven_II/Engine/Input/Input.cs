@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Tao.Sdl;
+﻿using Tao.Sdl;
 
 namespace Raven.Engine.Input
 {
     public class Input
     {
         public Mouse Mouse { get; set; }
-
+        public Keyboard Keyboard { get; set; }
         bool _usingController = false;
         XboxController Controller { get; set; }
 

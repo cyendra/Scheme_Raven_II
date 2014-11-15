@@ -1,14 +1,13 @@
 ﻿using Raven.Engine;
 using Raven.Engine.Graphics;
 using Raven.Engine.Input;
-using Raven.Game.State;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
 using Tao.DevIl;
 using Tao.OpenGl;
 
-namespace Raven.Game
+namespace Raven.Engine
 {
     public partial class GameForm : Form
     {
@@ -16,7 +15,7 @@ namespace Raven.Game
 
         private GameLoop _gameLoop;             // 游戏循环
         private StateSystem _system;            // 游戏状态管理器
-        private Input _input;                   // 输入管理器
+        private Input.Input _input;                   // 输入管理器
         private TextureManager _textureManager; // 纹理管理器
         private SoundManager _soundManager;     // 声音管理器
 
@@ -34,7 +33,7 @@ namespace Raven.Game
         {
             _fullscreen = false;
             _system = new StateSystem();
-            _input = new Input();
+            _input = new Input.Input();
             _textureManager = new TextureManager();
             _soundManager = new SoundManager();
 
@@ -54,6 +53,7 @@ namespace Raven.Game
         private void InitInput()
         {
             _input.Mouse = new Mouse(this, _openGLControl);
+            _input.Keyboard = new Keyboard(_openGLControl);
         }
 
         /// <summary>
@@ -85,8 +85,6 @@ namespace Raven.Game
             Ilut.ilutRenderer(Ilut.ILUT_OPENGL);
 
             // 使用纹理管理器加载纹理
-            _textureManager.LoadTexture("spaceship", "spaceship.tga");
-            _textureManager.LoadTexture("spaceship2", "spaceship2.tga");
 
         }
 
@@ -96,10 +94,8 @@ namespace Raven.Game
         private void InitGameState()
         {
             // 加载游戏状态
-            _system.AddState("texture_test", new MultipleTexturesState(_textureManager));
-            _system.AddState("sound_test", new SoundTestState(_soundManager, _input));
             
-            _system.ChangeState("sound_test");
+            //_system.ChangeState("");
         }
 
         /// <summary>
@@ -107,7 +103,7 @@ namespace Raven.Game
         /// </summary>
         private void InitSound()
         {
-            _soundManager.LoadSound("effect", "soundeffect1.wav");
+            // 加载声音
         }
 
         /// <summary>
