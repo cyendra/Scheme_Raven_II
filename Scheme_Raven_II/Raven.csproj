@@ -86,6 +86,11 @@
     <Compile Include="Demo\GameForm.Designer.cs">
       <DependentUpon>GameForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Demo\LevelDescription.cs" />
+    <Compile Include="Demo\PersistantGameData.cs" />
+    <Compile Include="Demo\State\GameOverState.cs" />
+    <Compile Include="Demo\State\InnerGameState.cs" />
+    <Compile Include="Demo\State\StartMenuState.cs" />
     <Compile Include="Engine\GameForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,7 +101,7 @@
     <Compile Include="Engine\Font\CharacterData.cs" />
     <Compile Include="Engine\Font\CharacterSprite.cs" />
     <Compile Include="Engine\DataStruct\Color.cs" />
-    <Compile Include="Engine\FastLoop.cs" />
+    <Compile Include="Engine\GameLoop.cs" />
     <Compile Include="Engine\Font\Font.cs" />
     <Compile Include="Engine\Font\FontParser.cs" />
     <Compile Include="Engine\Input\ControllerButton.cs" />
@@ -107,6 +112,8 @@
     <Compile Include="Engine\Input\Keyboard.cs" />
     <Compile Include="Engine\Input\Mouse.cs" />
     <Compile Include="Engine\Input\XboxController.cs" />
+    <Compile Include="Engine\Item\Button.cs" />
+    <Compile Include="Engine\Item\VerticalMenu.cs" />
     <Compile Include="Game\GameForm.cs">
       <SubType>Form</SubType>
     </Compile>

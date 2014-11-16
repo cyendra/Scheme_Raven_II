@@ -5,15 +5,7 @@ using System.IO;
 namespace Raven.Engine.Font
 {
     /// <summary>
-    /// This parser doesn't support kerning! It's also quite brittle and will die on unexpected input.
-    /// 
-    /// 
-    /// Kerning is the minor adjustments made to certain characters when they're next to each other.
-    /// Implementing kerning will make your text look a lot better!
-    /// 
-    /// But it's easy to add - you need to fill in a dictionary that
-    /// takes a pair of characters for key and returns an int kerning amount.
-    /// such as: Dictionary<Tuple<char, char>, int>> (this definition requires C# 4.0)
+    /// 字体
     /// </summary>
     public class FontParser
     {

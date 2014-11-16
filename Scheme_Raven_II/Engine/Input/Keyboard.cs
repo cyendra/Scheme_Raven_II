@@ -6,7 +6,7 @@ using System.Windows.Forms;
 namespace Raven.Engine.Input
 {
     /// <summary>
-    /// 键盘支持的类
+    /// 键盘设备的类
     /// </summary>
     public class Keyboard
     {
@@ -16,6 +16,9 @@ namespace Raven.Engine.Input
         private Control _openGLControl;
         public KeyPressEventHandler KeyPressEvent;
 
+        /// <summary>
+        /// 按键状态
+        /// </summary>
         class KeyState
         {
             bool _keyPressDetected = false;
@@ -91,18 +94,32 @@ namespace Raven.Engine.Input
             }
         }
 
+        /// <summary>
+        /// 是否按下按键
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public bool IsKeyPressed(Keys key)
         {
+            //System.Console.WriteLine(key.ToString());
             EnsureKeyStateExists(key);
             return _keyStates[key].Pressed;
         }
 
+        /// <summary>
+        /// 是否按住按键
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public bool IsKeyHeld(Keys key)
         {
             EnsureKeyStateExists(key);
             return _keyStates[key].Held;
         }
 
+        /// <summary>
+        /// 监听当前帧的键盘
+        /// </summary>
         public void Process()
         {
             ProcessControlKeys();
@@ -132,6 +149,7 @@ namespace Raven.Engine.Input
         {
             if (PollKeyPress(keys))
             {
+                System.Console.WriteLine("key down");
                 OnKeyDown(this, new KeyEventArgs(keys));
             }
             else

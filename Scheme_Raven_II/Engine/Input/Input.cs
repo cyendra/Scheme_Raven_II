@@ -2,12 +2,30 @@
 
 namespace Raven.Engine.Input
 {
+    /// <summary>
+    /// 监听输入设备的类
+    /// </summary>
     public class Input
     {
+        /// <summary>
+        /// 鼠标
+        /// </summary>
         public Mouse Mouse { get; set; }
+        
+        /// <summary>
+        /// 键盘
+        /// </summary>
         public Keyboard Keyboard { get; set; }
-        bool _usingController = false;
-        XboxController Controller { get; set; }
+        
+        /// <summary>
+        /// 是否使用手柄
+        /// </summary>
+        private bool _usingController = false;
+        
+        /// <summary>
+        /// 手柄
+        /// </summary>
+        public XboxController Controller { get; set; }
 
         public Input()
         {
@@ -19,6 +37,10 @@ namespace Raven.Engine.Input
             }
         }
 
+        /// <summary>
+        /// 检测输入信息
+        /// </summary>
+        /// <param name="elapsedTime"></param>
         public void Update(double elapsedTime)
         {
             if (_usingController)
@@ -26,7 +48,8 @@ namespace Raven.Engine.Input
                 Sdl.SDL_JoystickUpdate();
                 Controller.Update();
             }
-            Mouse.Update(elapsedTime); 
+            Mouse.Update(elapsedTime);
+            Keyboard.Process();
         }
 
     }
