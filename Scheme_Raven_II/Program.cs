@@ -20,7 +20,8 @@ namespace Raven
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Demo.GameForm());
+            //Application.Run(new Demo.GameForm());
+            Application.Run(new Scheme.Editor.EditForm());
         }
 
     }
